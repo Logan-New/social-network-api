@@ -8,9 +8,12 @@ router.get('/', async (req, res) => {
     const users = await User.find().populate('thoughts').populate('friends');
     res.json(users);
   } catch (err) {
-    res.status(500).json(err);
+    console.error('Error fetching users:', err.message); // Log detailed error message
+    res.status(500).json({ message: 'Error fetching users', error: err.message });
   }
 });
+
+
 
 // Get a single user by ID
 router.get('/:id', async (req, res) => {

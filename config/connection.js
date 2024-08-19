@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+// MongoDB URI
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/social-network';
 
-module.exports = mongoose.connection;
+module.exports = {
+  mongoURI,
+};
